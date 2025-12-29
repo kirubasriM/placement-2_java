@@ -1,0 +1,34 @@
+public class HeightLength {
+
+    static void compareHeight(String name, double height) {
+        System.out.println(name + "'s Height: " + height + " meters");
+
+        if(height < 1.50)
+            System.out.println("Short Height");
+        else if(height <= 1.75)
+            System.out.println("Average Height");
+        else
+            System.out.println("Tall Height");
+
+        System.out.println();
+    }
+
+    static void totalHeight(double[] heights) {
+        double total = 0;
+        for(double h : heights)
+            total += h;
+
+        System.out.println("Total Height of Group: " + total + " meters");
+        System.out.println("Average Height: " + (total / heights.length) + " meters\n");
+    }
+
+    public static void main(String[] args) {
+        String[] names = {"Asha", "Ravi", "Meena", "Kumar"};
+        double[] heights = {1.55, 1.72, 1.60, 1.80};
+
+        for(int i = 0; i < names.length; i++)
+            compareHeight(names[i], heights[i]);
+
+        totalHeight(heights);
+    }
+}
