@@ -1,0 +1,10 @@
+public class PostOfficeCustomers {
+    public static void main(String[] args) {
+
+        String[] customers = {"Asha", "Ravi", "Meena", "Kumar"};
+
+        System.out.println("Post Office Customers:");
+        for(String c : customers)
+            System.out.println("- " + c);
+    }
+}
