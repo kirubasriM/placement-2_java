@@ -1,0 +1,27 @@
+ public class WeightManagement {
+
+    static void calculateBMI(String name, double weightKg, double heightM) {
+        double bmi = weightKg / (heightM * heightM);
+        System.out.println(name + "'s BMI: " + String.format("%.2f", bmi));
+
+        if(bmi < 18.5)
+            System.out.println("Underweight");
+        else if(bmi < 24.9)
+            System.out.println("Normal Weight");
+        else if(bmi < 29.9)
+            System.out.println("Overweight");
+        else
+            System.out.println("Obese");
+
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        String[] names = {"Asha", "Ravi", "Meena"};
+        double[] weights = {50, 70, 65}; // in kg
+        double[] heights = {1.55, 1.72, 1.60}; // in meters
+
+        for(int i = 0; i < names.length; i++)
+            calculateBMI(names[i], weights[i], heights[i]);
+    }
+}
