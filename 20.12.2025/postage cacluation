@@ -1,0 +1,16 @@
+public class PostageCalculation {
+    public static void main(String[] args) {
+
+        int weight = 250; // in grams
+        int ratePer100g = 5;
+        int postage = ((weight + 99) / 100) * ratePer100g;
+
+        System.out.println("Package Weight: " + weight + "g");
+        System.out.println("Postage: ₹" + postage);
+
+        if(postage > 20)
+            System.out.println("High Postage");
+        else
+            System.out.println("Normal Postage");
+    }
+}
