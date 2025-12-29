@@ -1,0 +1,10 @@
+public class TourMembers {
+    public static void main(String[] args) {
+
+        String[] members = {"Asha", "Ravi", "Meena", "Kumar"};
+
+        System.out.println("Tour Members:");
+        for (String m : members)
+            System.out.println(m);
+    }
+}
