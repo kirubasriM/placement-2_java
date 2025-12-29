@@ -1,0 +1,17 @@
+public class HouseRent {
+    public static void main(String[] args) {
+
+        int monthlyRent = 12000;
+        int paid = 8000;
+
+        int remaining = monthlyRent - paid;
+        System.out.println("Monthly Rent: ₹" + monthlyRent);
+        System.out.println("Paid: ₹" + paid);
+        System.out.println("Remaining: ₹" + remaining);
+
+        if (remaining > 0)
+            System.out.println("Rent Pending");
+        else
+            System.out.println("Rent Paid in Full");
+    }
+}
