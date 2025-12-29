@@ -1,0 +1,17 @@
+public class UtilityBill {
+    public static void main(String[] args) {
+
+        int[] bills = {1200, 800, 600}; // Electricity, Water, Gas
+        int total = 0;
+
+        for(int b : bills)
+            total += b;
+
+        System.out.println("Total Utility Bills: ₹" + total);
+
+        if(total > 2000)
+            System.out.println("High Utility Expense");
+        else
+            System.out.println("Normal Utility Expense");
+    }
+}
