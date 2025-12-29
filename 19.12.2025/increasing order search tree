@@ -1,0 +1,19 @@
+class Solution {
+    TreeNode prevNode = null;
+    private TreeNode smallest;
+    public TreeNode increasingBST(TreeNode root) {
+        if (root == null) return null;
+        
+        increasingBST(root.left);
+        if (smallest == null) {
+            smallest = root;
+        }
+        if (prevNode != null) {
+            prevNode.right = root;
+        }
+        prevNode = root;
+        root.left = null;
+        increasingBST(root.right);
+        return smallest;
+    }
+}
