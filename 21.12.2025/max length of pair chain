@@ -1,0 +1,31 @@
+class Solution {
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        return helper(nums, 0, nums.length - 1);
+    }
+
+    // Fn to find head in current range [start , end]
+    private TreeNode helper(int[] nums, int start, int end) {
+        // Case: No element left, return null node
+        if (start > end) {
+            return null;
+        }
+
+        int maxIndex = start;
+        for (int i = start; i <= end; i++) {
+            if (nums[i] > nums[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+
+        // Current head
+        TreeNode head = new TreeNode(nums[maxIndex]);
+
+        // Build left subtree in range: [start, currentHeadIndex -1]
+        head.left = helper(nums, start, maxIndex - 1);
+
+        // Build right subtree in range: [currentHeadIndex + 1 , end]
+        head.right = helper(nums, maxIndex + 1, end);
+
+        return head;
+    }
+}
