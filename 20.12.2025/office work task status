@@ -1,0 +1,15 @@
+class TaskStatus {
+
+    static void checkStatus(int status) {
+        switch (status) {
+            case 1 -> System.out.println("Task Assigned");
+            case 2 -> System.out.println("Task In Progress");
+            case 3 -> System.out.println("Task Completed");
+            default -> System.out.println("Invalid Status");
+        }
+    }
+
+    public static void main(String[] args) {
+        checkStatus(3);
+    }
+}
