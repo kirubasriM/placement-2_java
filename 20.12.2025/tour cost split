@@ -1,0 +1,37 @@
+ import java.util.Scanner;
+
+public class TourCostSplit {
+
+    static void showMembers(String[] members) {
+        System.out.println("Tour Members:");
+        for (String m : members)
+            System.out.println("- " + m);
+    }
+
+    static void calculateCost(int expensePerPerson, String[] members, int budget) {
+        int totalExpense = expensePerPerson * members.length;
+        int perPerson = totalExpense / members.length;
+
+        System.out.println("Expense per Person: ₹" + expensePerPerson);
+        System.out.println("Total Expense: ₹" + totalExpense);
+        System.out.println("Each Member Pays: ₹" + perPerson);
+
+        if (budget >= totalExpense)
+            System.out.println("Budget is Sufficient for the Tour");
+        else
+            System.out.println("Budget is Insufficient for the Tour");
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] members = {"Asha", "Ravi", "Meena", "Kumar"};
+        int budget = 10000;
+
+        System.out.print("Enter Expense per Person: ");
+        int expensePerPerson = sc.nextInt();
+
+        showMembers(members);
+        calculateCost(expensePerPerson, members, budget);
+    }
+}
