@@ -1,0 +1,29 @@
+public class FurnitureInventory {
+
+    static void showInventory(String[] items, int[] quantity, int[] price) {
+        System.out.println("Furniture Inventory:");
+        int totalCost = 0;
+
+        for(int i = 0; i < items.length; i++) {
+            System.out.println(items[i] + " - Quantity: " + quantity[i] + ", Price: ₹" + price[i]);
+            totalCost += quantity[i] * price[i];
+        }
+
+        System.out.println("Total Inventory Cost: ₹" + totalCost);
+
+        if(totalCost > 50000)
+            System.out.println("Inventory Value: High ⚠️");
+        else
+            System.out.println("Inventory Value: Moderate ✅");
+
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        String[] items = {"Chair", "Table", "Sofa", "Cabinet"};
+        int[] quantity = {10, 5, 2, 3};
+        int[] price = {1500, 5000, 8000, 3000};
+
+        showInventory(items, quantity, price);
+    }
+}
