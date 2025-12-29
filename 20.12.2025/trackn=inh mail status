@@ -1,0 +1,11 @@
+ public class MailStatus {
+    public static void main(String[] args) {
+
+        boolean delivered = false;
+
+        if(delivered)
+            System.out.println("Mail Delivered");
+        else
+            System.out.println("Mail In Transit");
+    }
+}
