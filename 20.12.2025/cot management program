@@ -1,0 +1,32 @@
+public class CotManagement {
+
+    static void showCots(String[] cots, String[] type, boolean[] occupied, int[] price) {
+        System.out.println("Cot Details:");
+
+        for(int i = 0; i < cots.length; i++) {
+            System.out.println("Cot: " + cots[i] + ", Type: " + type[i] +
+                    ", Occupied: " + (occupied[i] ? "Yes" : "No") + ", Price: ₹" + price[i]);
+        }
+
+        System.out.println();
+    }
+
+    static void availableCots(String[] cots, boolean[] occupied) {
+        System.out.println("Available Cots:");
+        for(int i = 0; i < cots.length; i++) {
+            if(!occupied[i])
+                System.out.println(cots[i]);
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        String[] cots = {"Cot1", "Cot2", "Cot3", "Cot4"};
+        String[] type = {"Single", "Double", "Single", "Double"};
+        boolean[] occupied = {true, false, false, true};
+        int[] price = {2000, 3500, 2000, 3500};
+
+        showCots(cots, type, occupied, price);
+        availableCots(cots, occupied);
+    }
+}
