@@ -1,0 +1,25 @@
+public class AIScore {
+
+    static void calculateScore(int[] metrics) {
+        int total = 0;
+
+        for(int m : metrics)
+            total += m;
+
+        double avg = total / (double)metrics.length;
+        System.out.println("Total Metrics Score: " + total);
+        System.out.println("Average AI Score: " + avg);
+
+        if(avg >= 80)
+            System.out.println("AI Model Performance: Excellent 🤖");
+        else if(avg >= 60)
+            System.out.println("AI Model Performance: Good 🙂");
+        else
+            System.out.println("AI Model Performance: Needs Improvement ⚠️");
+    }
+
+    public static void main(String[] args) {
+        int[] metrics = {85, 78, 90, 70};
+        calculateScore(metrics);
+    }
+}
