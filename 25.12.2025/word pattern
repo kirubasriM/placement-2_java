@@ -1,0 +1,16 @@
+Word Patternclass Solution {
+    public boolean wordPattern(String p, String s) {
+        String[] w = s.split(" ");
+        if (p.length() != w.length) return false;
+        Map<Character, String> m = new HashMap<>();
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < p.length(); i++) {
+            char c = p.charAt(i);
+            if (!m.containsKey(c)) {
+                if (!set.add(w[i])) return false;
+                m.put(c, w[i]);
+            } else if (!m.get(c).equals(w[i])) return false;
+        }
+        return true;
+    }
+}
