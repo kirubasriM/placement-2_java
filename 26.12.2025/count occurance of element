@@ -1,0 +1,6 @@
+class Solution {
+    public int count(int[] arr, int i, int x) {
+        if (i == arr.length) return 0;
+        return (arr[i] == x ? 1 : 0) + count(arr, i + 1, x);
+    }
+}
