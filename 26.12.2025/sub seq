@@ -1,0 +1,10 @@
+class Solution {
+    public void subseq(String s, String curr, int i) {
+        if (i == s.length()) {
+            System.out.println(curr);
+            return;
+        }
+        subseq(s, curr + s.charAt(i), i + 1);
+        subseq(s, curr, i + 1);
+    }
+}
