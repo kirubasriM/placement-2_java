@@ -1,0 +1,23 @@
+import java.util.Arrays ; 
+
+class Solution {  
+    public static long biquad(int  index){ // initial ){
+        long theta = 0l ; 
+        theta = theta+(long)Math.pow(index,3)*4 ;  
+        theta = theta+(long)Math.pow(index,2)*6 ;  
+        theta = theta+(long)Math.pow(index,1)*2 ;  
+        return theta ; 
+    }
+    public long minimumPerimeter(long neededApples) {
+        int indexL = 0 ; // 0l ; 
+        int  indexR = (int)Math.pow(10,5) ; // 0l ; 
+        while( indexR>=indexL){
+            int centre = (indexR+indexL)/2  ; 
+            long theta = biquad(centre) ; 
+            if(theta>=neededApples){indexR = centre-1 ; } 
+            if(theta<neededApples){indexL = centre+1 ; }
+        }  
+        int delta = indexL*8 ; 
+        return delta ;
+    }
+}
