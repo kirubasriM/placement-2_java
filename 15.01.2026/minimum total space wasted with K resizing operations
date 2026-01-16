@@ -1,0 +1,32 @@
+class Solution {
+    public int minSpaceWastedKResizing(int[] nums, int k) {
+        if(nums.length==1)
+            return 0;
+        Integer[][]dp=new Integer[nums.length+1][k+1];
+        int ans=minSpaceWastedKResizing(0,k,nums,dp);
+        return ans;
+    }
+    public int minSpaceWastedKResizing(int idx,int k,int[]nums,Integer[][]dp){
+        if(idx==nums.length)
+            return 0;
+        if(k==0){
+            int max_=Integer.MIN_VALUE,sum=0;
+            for(int i=idx;i<nums.length;i++){
+                max_=Math.max(max_,nums[i]);
+                sum+=nums[i];
+            }
+            dp[idx][k]=max_*(nums.length-idx)-sum;
+            return dp[idx][k];
+        }
+        if(dp[idx][k]!=null)
+            return dp[idx][k];
+        int max_=Integer.MIN_VALUE,sum=0,totalSpaceWasted=Integer.MAX_VALUE;
+        for(int i=idx;i<nums.length;i++){
+            max_=Math.max(max_,nums[i]);
+            sum+=nums[i];
+            totalSpaceWasted=Math.min(totalSpaceWasted,(i-idx+1)*max_-sum+minSpaceWastedKResizing(i+1,k-1,nums,dp));
+        }
+        dp[idx][k]=totalSpaceWasted;
+        return dp[idx][k];
+    }
+}
