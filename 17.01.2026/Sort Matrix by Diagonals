@@ -1,0 +1,27 @@
+class Solution {
+    public int[][] sortMatrix(int[][] grid) {
+        // Sort top-right triangle in increasing order.
+        for (int j = 1; j < grid.length; j++) {
+            int[] temp = new int[grid.length - j];
+            for (int ni = 0, nj = j; nj < grid.length; ni++, nj++) {
+                temp[nj - j] = grid[ni][nj];
+            }
+            Arrays.sort(temp);
+            for (int ni = 0, nj = j; nj < grid.length; ni++, nj++) {
+                grid[ni][nj] = temp[nj - j];
+            }
+        }
+        // Sort bottom-left triangle in decreasing order.
+        for (int i = 0; i < grid.length; i++) {
+            int[] temp = new int[grid.length - i];
+            for (int ni = i, nj = 0; ni < grid.length; ni++, nj++) {
+                temp[ni - i] = grid[ni][nj];
+            }
+            Arrays.sort(temp);
+            for (int ni = i, nj = 0; ni < grid.length; ni++, nj++) {
+                grid[ni][nj] = temp[temp.length - 1 - ni + i];
+            }
+        }
+        return grid;
+    }
+}
