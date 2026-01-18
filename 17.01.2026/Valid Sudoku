@@ -1,0 +1,38 @@
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        for (var i = 0; i < 9; i++) {
+            var set1 = new HashSet<Character>();
+            var set2 = new HashSet<Character>();
+            for (var j = 0; j < 9; j++) {
+                if (Character.isDigit(board[j][i]) && !set1.add(board[j][i])) {
+                    return false;
+                }
+                if(Character.isDigit(board[i][j]) && !set2.add(board[i][j])){
+                    return false;
+                }
+            }
+        }
+        return
+                isValidSudoku(0, 3, 0, 3, board) &&
+                isValidSudoku(0, 3, 3, 6, board) &&
+                isValidSudoku(0, 3, 6, 9, board) &&
+                isValidSudoku(3, 6, 0, 3, board) &&
+                isValidSudoku(3, 6, 3, 6, board) &&
+                isValidSudoku(3, 6, 6, 9, board) &&
+                isValidSudoku(6, 9, 0, 3, board) &&
+                isValidSudoku(6, 9, 3, 6, board) &&
+                isValidSudoku(6, 9, 6, 9, board);
+    }
+
+    public boolean isValidSudoku(int start, int end, int startIndex, int endIndex, char[][] board) {
+         var set = new HashSet<Character>();
+        for (var i = start; i < end; i++) {
+            for (var j = startIndex; j < endIndex; j++) {
+                if (Character.isDigit(board[i][j]) && !set.add(board[i][j])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
