@@ -1,0 +1,59 @@
+class Solution {
+    public int minimumArea(int[][] grid) {
+        if (grid == null || grid.length == 0)
+            return 0;
+
+        boolean found = false;
+        for (int[] row : grid) {
+            for (int val : row) {
+                if (val == 1) { found = true; break; }
+            }
+            if (found) break;
+        }
+        if (!found) return 0;
+
+        int length = grid.length;
+        int rowSize = grid[0].length;
+        // We need to find the top row, bottom row, leftmost and rightmost columns with 1s
+        int topRow = -1, bottomRow = -1, leftCol = -1, rightCol = -1;
+        // Top row:
+
+        for (int i=0; i < length; i++) {
+            for (int j=0; j < rowSize; j++) {
+                if (grid[i][j] == 1) {
+                    topRow = i; break;
+                }
+            }
+            if (topRow != -1) break;
+        }
+
+        for (int i=length-1; i >= 0; i--) {
+            for (int j=0; j < rowSize; j++) {
+                if (grid[i][j] == 1) {
+                    bottomRow = i; break;
+                }
+            }
+            if (bottomRow != -1) break;
+        }
+
+        for (int i=0; i < rowSize; i++) {
+            for (int j=0; j < length; j++) {
+                if (grid[j][i] == 1) {
+                    leftCol = i; break;
+                }
+            }
+            if (leftCol != -1) break;
+        }
+
+        for (int i=rowSize-1; i >= 0; i--) {
+            for (int j=0; j < length; j++) {
+                if (grid[j][i] == 1) {
+                    rightCol = i; break;
+                }
+            }
+            if (rightCol != -1) break;
+        }
+
+        return (bottomRow - topRow + 1) * (rightCol - leftCol + 1);
+    }
+}
